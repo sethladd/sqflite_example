@@ -10,6 +10,14 @@ void main() {
   runApp(new MyApp());
 }
 
+const colors = const [
+  Colors.blue,
+  Colors.green,
+  Colors.yellow,
+  Colors.purple,
+  Colors.orange,
+];
+
 class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
@@ -33,7 +41,7 @@ class MyHomePage extends StatefulWidget {
 class _MyHomePageState extends State<MyHomePage> {
   Future<List> _getData() async {
     Directory documentsDirectory = await getApplicationDocumentsDirectory();
-    String path = "${documentsDirectory.path}/demo.db";
+    var path = "${documentsDirectory.path}/demo.db";
     bool exists = await new File(path).exists();
     // On first install, copy database out of assets and into documents dir
 
@@ -50,13 +58,6 @@ class _MyHomePageState extends State<MyHomePage> {
 
   @override
   Widget build(BuildContext context) {
-    const List<Color> colors = const <Color>[
-      Colors.blue,
-      Colors.green,
-      Colors.yellow,
-      Colors.purple,
-      Colors.orange,
-    ];
     return new Scaffold(
       appBar: new AppBar(
         title: new Text('GridView example'),
